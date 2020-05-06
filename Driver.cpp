@@ -24,6 +24,7 @@ int main()
 
     Item* chainsaw = new Item("a running chainsaw");
     theStudent->addItem(chainsaw);
+    lobby->addItem("A double sided gun");
 
     while(command != "quit")
     {
@@ -34,6 +35,21 @@ int main()
         if(command == "backpack")
         {
             theStudent->displayBackpackContents();
+        }
+        else if(command == "drop")
+        {
+            theStudent->dropItem("a running chainsaw");
+        }
+        else if(command == "look")
+        {
+            theStudent->getCurrentRoom()->lookAround();   
+        }
+        else if(command == "pickup")
+        {
+            string pickUpItem;
+            //cout << "What would you like to pick up? ";
+            //cin >> pickUpItem;
+            theStudent->pickupItem("A double sided gun");
         }
         else
         {

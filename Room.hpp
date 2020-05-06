@@ -15,14 +15,23 @@ class Room
         Door* collectionOfDoors[10];
         int currentNumberOfDoors;
         LinkedListOfStudents* theStudents;
+        //Item* itemsInRoom[10];
+        int currNumOfItems;
     
     public:
+        
+        Item* itemsInRoom[10];
         Room(string title);
         void addDoor(Door* aDoor);
         void display();
         void addStudent(Student* aStudent);
         void removeStudent(Student* aStudent);
         void takeDoor(Student* aStudent, string direction);
+        void addItem(string itemName);
+        void lookAround();
 
+        bool isAItem(string itemName);
+        int getItemIndex(string ItemName);
+        int getCurrNumOfItems();
 };
 #endif

@@ -8,6 +8,7 @@ Room::Room(string title)
 {
     this->title = title;
     this->currentNumberOfDoors = 0;
+    this->currNumOfItems = 0;
 }
 
 void Room::addDoor(Door* aDoor)
@@ -78,4 +79,55 @@ void Room::display()
         cout << tempStudent->getName() << " ";
     }
     cout << "\n";
+}
+
+void Room::addItem(string itemName)
+{
+    Item* anItem = new Item(itemName);
+    if (currNumOfItems < 10)
+    {
+        itemsInRoom[currNumOfItems] = anItem;
+        currNumOfItems++;
+    }
+}
+
+bool Room::isAItem(string itemName)
+{
+    for (int i = 0; i < this->currNumOfItems; i++)
+    {
+        if (itemName == this->itemsInRoom[i]->getName())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int Room::getItemIndex(string itemName)
+{
+    bool verificate = isAItem(itemName);
+    if (verificate = true)
+    {
+        for (int i = 0; i < this->currNumOfItems; i++)
+        {
+            if (itemName == this->itemsInRoom[i]->getName())
+            {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
+void Room::lookAround()
+{
+    for (int i = 0; i<currNumOfItems; i++)
+    {
+        cout << itemsInRoom[i]->getName() << "\n";
+    }
+}
+
+int Room::getCurrNumOfItems()
+{
+    return this->currNumOfItems;
 }

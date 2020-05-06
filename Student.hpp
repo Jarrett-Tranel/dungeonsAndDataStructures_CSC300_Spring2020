@@ -22,6 +22,10 @@ class Student
         string getName();
         Room* getCurrentRoom();
         void setCurrentRoom(Room* aRoom);
+        Item* dropItem(string itemToDrop);
+        void pickupItem(string itemToPickup);
+        int getItemIndex(string ItemName);
+        bool isAItem(string itemName);
 };
 
 #endif
